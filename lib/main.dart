@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_gym/screens/ai_screen.dart';
 import 'package:my_gym/screens/app_entry.dart';
 import 'package:my_gym/screens/settings.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -53,18 +54,18 @@ class _MyHomePageState extends State<MyHomePage> {
 
   final List<Widget> _pages = const [
     HomePage(),
+    AiScreen(),
     WorkoutsPage(),
     StreaksScreen(),
     ProfilePage(),
-    SettingsScreen(),
   ];
 
   final List<String> _titles = const [
     'My Gym',
+    'AI',
     'Workouts',
     'Streaks',
     'Profile',
-    'Settings',
   ];
 
   void _onItemTapped(int index) => setState(() => _selectedIndex = index);
@@ -182,7 +183,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: _pages[_selectedIndex],
 
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _selectedIndex > 3 ? 0 : _selectedIndex,
+        currentIndex: _selectedIndex > 4 ? 0 : _selectedIndex,
         selectedItemColor: Colors.deepOrangeAccent,
         unselectedItemColor: Colors.grey,
         onTap: _onItemTapped,
@@ -191,6 +192,7 @@ class _MyHomePageState extends State<MyHomePage> {
             icon: Icon(Icons.home_outlined),
             label: 'Home',
           ),
+          BottomNavigationBarItem(icon: Icon(Icons.smart_toy), label: 'AI'),
           BottomNavigationBarItem(
             icon: Icon(Icons.fitness_center),
             label: 'Workouts',
