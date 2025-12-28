@@ -65,7 +65,7 @@ class _RenewMembershipSectionState extends State<RenewMembershipSection> {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(
-              data['message'] ?? 'Payment request sent. Check your phone 📱',
+              data['message'] ?? 'Payment request sent. Check your phone now 📱',
             ),
           ),
         );
